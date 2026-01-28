@@ -85,10 +85,16 @@ fun MapScreen() {
                         settings.apply {
                             javaScriptEnabled = true
                             domStorageEnabled = true
-                            cacheMode = android.webkit.WebSettings.LOAD_DEFAULT
+                            databaseEnabled = true
                             allowFileAccess = false
                             allowContentAccess = false
-                            mixedContentMode = android.webkit.WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE
+                            cacheMode = android.webkit.WebSettings.LOAD_DEFAULT
+                            mixedContentMode = android.webkit.WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
+                            setSupportZoom(true)
+                            builtInZoomControls = true
+                            displayZoomControls = false
+                            loadWithOverviewMode = true
+                            useWideViewPort = true
                         }
                         loadUrl("https://map.supersmp.fun")
                     }
