@@ -16,3 +16,8 @@ local.properties
 .idea
 *.apk
 *.apk.sigd
+.vscode
+.kotlin
+/app/build
+/app/release
+/app/debug

@@ -1,7 +1,6 @@
 plugins {
     id("com.android.application")
     id("com.google.dagger.hilt.android")
-    id("kotlin-kapt")
     id("org.jetbrains.kotlin.plugin.compose")
     id("com.google.devtools.ksp")
 }
@@ -30,11 +29,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
-    kotlinOptions {
-        jvmTarget = "11"
+    kotlin {
+        jvmToolchain(17)
     }
     buildFeatures {
         compose = true
@@ -45,7 +44,7 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("com.google.dagger:hilt-android:2.59")
-    kapt("com.google.dagger:hilt-compiler:2.59")
+    ksp("com.google.dagger:hilt-compiler:2.59")
     implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

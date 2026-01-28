@@ -12,32 +12,48 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+    primary = SuperSMPPrimaryDark,
+    onPrimary = SuperSMPOnPrimaryDark,
+    primaryContainer = SuperSMPPrimaryContainerDark,
+    onPrimaryContainer = SuperSMPOnPrimaryContainerDark,
+    secondary = SuperSMPSecondaryDark,
+    onSecondary = SuperSMPOnSecondaryDark,
+    secondaryContainer = SuperSMPSecondaryContainerDark,
+    onSecondaryContainer = SuperSMPOnSecondaryContainerDark,
+    tertiary = SuperSMPTertiaryDark,
+    onTertiary = SuperSMPOnTertiaryDark,
+    tertiaryContainer = SuperSMPTertiaryContainerDark,
+    onTertiaryContainer = SuperSMPOnTertiaryContainerDark,
+    background = SuperSMPBackgroundDark,
+    onBackground = SuperSMPOnBackgroundDark,
+    surface = SuperSMPSurfaceDark,
+    onSurface = SuperSMPOnSurfaceDark
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+    primary = SuperSMPPrimary,
+    onPrimary = SuperSMPOnPrimary,
+    primaryContainer = SuperSMPPrimaryContainer,
+    onPrimaryContainer = SuperSMPOnPrimaryContainer,
+    secondary = SuperSMPSecondary,
+    onSecondary = SuperSMPOnSecondary,
+    secondaryContainer = SuperSMPSecondaryContainer,
+    onSecondaryContainer = SuperSMPOnSecondaryContainer,
+    tertiary = SuperSMPTertiary,
+    onTertiary = SuperSMPOnTertiary,
+    tertiaryContainer = SuperSMPTertiaryContainer,
+    onTertiaryContainer = SuperSMPOnTertiaryContainer,
+    background = SuperSMPBackground,
+    onBackground = SuperSMPOnBackground,
+    surface = SuperSMPSurface,
+    onSurface = SuperSMPOnSurface
 )
 
 @Composable
 fun SuperSMPCompanionTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    // Use custom SuperSMP theme instead of dynamic colors
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
@@ -45,7 +61,6 @@ fun SuperSMPCompanionTheme(
             val context = LocalContext.current
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
-
         darkTheme -> DarkColorScheme
         else -> LightColorScheme
     }
